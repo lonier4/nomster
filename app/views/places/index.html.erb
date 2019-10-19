@@ -6,21 +6,27 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <%= image_tag 'boom.png', class: 'img-fluid' %>
+      <%= image_tag 'dinner.jpg', class: 'img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
-      <h3>Find the next best thing</h3>
+      <h3>Dinner is Served</h3>
     </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag 'hello.png', class: 'img-fluid' %>
+      <%= image_tag 'armbands.jpg', class: 'img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
-      <h3>Paella Anybody?</h3>
+      <h3>Stay Afloat, Food Awaits</h3>
     </div>
     </div>
     <div class="carousel-item">
       <%= image_tag 'nope.jpeg', class: 'img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
       <h3>Nope</h3>
+    </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'hello.png', class: 'img-fluid' %>
+      <div class="carousel-caption d-none d-md-block">
+      <h3>Paella Anybody?</h3>
     </div>
     </div>
   </div>
@@ -35,14 +41,17 @@
 </div>
 
 <% @places.each do |place| %>
-  <div class="booyah-box col-10 offset-1">
-    <h1><%= link_to place.name, place_path(place) %></h1><br />
+  <div class="booyah-box col-8 offset-2">
+    <h1><%= link_to place.name, place_path(place) %></h1>
     <i><%= place.address %></i><br />
-    <p><%= place.description %></p><br />
-
+    <p><%= place.description %></p>
+    <%= image_tag place.photos.first.picture.url, class: 'picture'  %>
+      <br/>
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
+
+
 
   <% if place.comments.present? %>
     <div class="col-12 col-sm-6">

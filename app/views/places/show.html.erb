@@ -34,8 +34,9 @@
   <br />
 
   <div class="float-right">
+    
     <% if current_user && current_user == @place.user %>
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#photos_modal">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#photos_modal">
       Add a Photo
     </button>
     <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
@@ -67,10 +68,14 @@
   </div>
 </div>
 
+<br/>
 <div class="col-10 offset-1">  
-  <h1 class="float-left">Comments</h1>
+  <br/>
 
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#comments-modal">
+  <h1 class="float-left">Comments</h1>
+  
+
+  <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#comments-modal">
   Add a Comment
   </button>
 </div>
@@ -78,7 +83,7 @@
 <div class="clear"></div>
 <div class="row">
   <% @place.comments.each do |comment| %>
-    <div class="col-12 col-sm-6">
+    <div class="col-12 col-sm-6 offset-1">
       <blockquote>
         <% if comment.humanized_rating.present? %>
           <b><%= comment.humanized_rating %></b> -
@@ -90,11 +95,8 @@
   <% end %>
 </div>
 
-
-
-
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<br/>
+<div id="carouselExampleIndicators" class="carousel slide col-10 offset-1" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
